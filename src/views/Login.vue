@@ -1,6 +1,11 @@
 <script>
     export default {
-        
+        methods: {
+            login() {
+                this.$store.commit('SET_TOKEN', 'shenanigans')
+                this.$router.push('/dashboard')
+            }
+        }
     }
 </script>
 
@@ -24,12 +29,11 @@
                     <!-- <input class="login-inputs-pass" placeholder="Κωδικός" type="password" v-model="password" /> -->
                     <hr />
                 </div>
-                <button class="login-inputs-btn">Σύνδεση</button>
+                <button @click="login"  class="login-inputs-btn">Σύνδεση</button>
             </div>
         </div>
     </div>
 </template>
-στο schoolbus! Την πρώτη διαδυκτιακή πλατφόρμα διαχείρησης και βελτιστοποίησης διαδρομών για τα σχολικά λεωφορεία.
 
 <style lang="scss" scoped>
 .login-artwork {

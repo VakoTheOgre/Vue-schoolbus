@@ -1,23 +1,17 @@
 <script>
 export default {
 
-  mounted() {
+  created() {
     this.getSchool()
   },
 
   methods: {
-    async getSchool() {
+    getSchool() {
       try {
-        const res = await this.$axios.get('http://www.mocky.io/v2/5d82108e300000376d699abf')
-        this.$store.commit('schools/set', res.data.schools)
-        if ( res ) { this.students(res.data.schools) } else { return null }
-      } catch (e) {
-        console.log('error')
+        this.$store.dispatch('FETCH_SCHOOLS')
+      } catch(e) {
+        this.$router.push( {} )
       }
-    },
-
-    students(schools) {
-      this.$store.commit('students/set', schools)
     }
   }
 }
